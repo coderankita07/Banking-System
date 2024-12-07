@@ -31,21 +31,21 @@ This **Banking System** project is built using **C++** and demonstrates real-wor
 
 Below is the file structure of the project:
 
-📁 Banking_System
-├── 📄 Bank.h # Header file defining Bank class and operations
-├── 📄 Bank.cpp # Implementation of Bank class operations
-├── 📄 Customer.h # Header file defining Customer class
-├── 📄 Customer.cpp # Implementation of Customer class
-├── 📄 Account.h # Header file defining Account class and operations
-├── 📄 Account.cpp # Implementation of Account class operations
-├── 📄 CheckingAccount.h # Header file defining CheckingAccount class
-├── 📄 CheckingAccount.cpp # Implementation of CheckingAccount class
-├── 📄 SavingsAccount.h # Header file defining SavingsAccount class
-├── 📄 SavingsAccount.cpp # Implementation of SavingsAccount class
-├── 📄 Transaction.h # Header file defining Transaction class
-├── 📄 Transaction.cpp # Implementation of Transaction class
-├── 📄 main.cpp # Main entry point for running the banking system
-├── 📄 README.md # Project documentation
+. 📁 Banking_System
+. ├── 📄 Bank.h # Header file defining Bank class and operations
+. ├── 📄 Bank.cpp # Implementation of Bank class operations
+. ├── 📄 Customer.h # Header file defining Customer class
+. ├── 📄 Customer.cpp # Implementation of Customer class
+. ├── 📄 Account.h # Header file defining Account class and operations
+. ├── 📄 Account.cpp # Implementation of Account class operations
+. ├── 📄 CheckingAccount.h # Header file defining CheckingAccount class
+. ├── 📄 CheckingAccount.cpp # Implementation of CheckingAccount class
+. ├── 📄 SavingsAccount.h # Header file defining SavingsAccount class
+. ├── 📄 SavingsAccount.cpp # Implementation of SavingsAccount class
+. ├── 📄 Transaction.h # Header file defining Transaction class
+. ├── 📄 Transaction.cpp # Implementation of Transaction class
+. ├── 📄 main.cpp # Main entry point for running the banking system
+. ├── 📄 README.md # Project documentation
 
 ## 🛠️ **How to Use**
 
