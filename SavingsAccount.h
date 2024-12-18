@@ -2,17 +2,19 @@
 #define SAVINGSACCOUNT_H
 
 #include "Account.h"
+#include <string>
 
 class SavingsAccount : public Account {
 private:
-    int transactionCount;
-    const double interestRate = 0.05; // 5% annual interest rate
+    double interestRate; // Annual interest rate
 
 public:
-    SavingsAccount(string accNum);
-    void applyInterest() override;
-    void deposit(double amount) override;
-    bool withdraw(double amount) override;
+    // Constructor
+    SavingsAccount(const std::string& accNum, const std::string& accHolder, double bal, double intRate = 5.0);
+
+    // Overridden methods
+    void withdraw(double amount) override;             // Withdraw funds with rules for savings accounts
+    std::string getAccountType() const override;             // Return account type
 };
 
-#endif
+#endif // SAVINGSACCOUNT_H

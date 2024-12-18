@@ -1,34 +1,25 @@
 #include "SavingsAccount.h"
 #include <iostream>
+#include <iomanip> // For potential formatting
 
-SavingsAccount::SavingsAccount(string accNum) : Account(accNum), transactionCount(0) {}
+// Constructor
+SavingsAccount::SavingsAccount(const std::string& accNum, const std::string& accHolder, double bal, double intRate)
+    : Account(accNum, accHolder, bal), interestRate(intRate) {}
 
-void SavingsAccount::applyInterest() {
-    // Apply interest after every 3 transactions
-    if (transactionCount >= 3) {
-        double interest = balance * interestRate / 12; // Interest for 1 month (assuming monthly)
-        balance += interest;
-        addTransaction("Interest", interest);
-        cout << "Interest applied: " << interest << " Rs." << endl;
-        transactionCount = 0; // Reset transaction count
+// Overridden withdraw function
+void SavingsAccount::withdraw(double amount) {
+    if (amount <= balance) {
+        balance -= amount;
+        logTransaction("Withdraw", amount);
+        std::cout << "Withdrew Rs. " << std::fixed << std::setprecision(2) 
+                  << amount << " from Savings Account. Remaining Balance: Rs. " 
+                  << balance << std::endl;
+    } else {
+        std::cout << "Insufficient Balance in Savings Account." << std::endl;
     }
 }
 
-void SavingsAccount::deposit(double amount) {
-    balance += amount;
-    addTransaction("Deposit", amount);
-    transactionCount++;
-    applyInterest();  // Check and apply interest after each deposit
-}
-
-bool SavingsAccount::withdraw(double amount) {
-    if (amount > balance) {
-        cout << "Insufficient balance!\n";
-        return false;
-    }
-    balance -= amount;
-    addTransaction("Withdraw", amount);
-    transactionCount++;
-    applyInterest();  // Check and apply interest after each withdrawal
-    return true;
+// Overridden getAccountType function
+std::string SavingsAccount::getAccountType() const {
+    return "Savings";
 }

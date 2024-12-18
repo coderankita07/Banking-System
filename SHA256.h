@@ -5,27 +5,27 @@
 #include <vector>
 #include <sstream>
 #include <iomanip>
-using namespace std;
+#include <cstdint> // For fixed-width integer types
 
 class SHA256 {
 private:
-    static const size_t block_size = 64;  // Block size in bytes
-    static const size_t hash_size = 32;   // SHA-256 hash size in bytes
+    static constexpr size_t block_size = 64;  // Block size in bytes
+    static constexpr size_t hash_size = 32;   // SHA-256 hash size in bytes
 
-    uint32_t state[8];       // Internal state (A, B, C, D, E, F, G, H)
-    uint32_t count[2];       // Number of bits processed
-    uint8_t buffer[block_size];  // Buffer for input data
-    uint8_t digest[hash_size];   // Final hash output
+    uint32_t state[8];         // Internal state: A, B, C, D, E, F, G, H
+    uint64_t bit_count;        // Total number of bits processed
+    uint8_t buffer[block_size]; // Input data buffer
+    uint8_t digest[hash_size];  // Final hash output
 
-    // Padding and length processing
-    void padMessage(const uint8_t* message, size_t length);
-    void processBlock(const uint8_t* block);
+    // Helper methods for processing
+    void padMessage();                        // Pads the message to align with the block size
+    void processBlock(const uint8_t* block);  // Processes a 512-bit block
 
 public:
-    SHA256();
-    void update(const uint8_t* message, size_t length);
-    void final();
-    string getHashHex() const;
+    SHA256();                                // Constructor to initialize internal state
+    void update(const uint8_t* message, size_t length); // Updates the hash with new data
+    void final();                            // Finalizes the hash computation
+    std::string getHashHex() const;          // Returns the computed hash as a hexadecimal string
 };
 
-#endif
+#endif // SHA256_H
