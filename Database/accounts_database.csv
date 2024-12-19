@@ -1,2 +1,2 @@
 username,accountNumber,balance,type,accountHolder,transactions
-Khush,070,3630,Savings,Khushdev Yogi,19-Dec-2024 01:11:39|Deposit|5000.0;19-Dec-2024 01:11:41|Withdraw|1000.0;19-Dec-2024 01:11:44|Deposit|50.0;19-Dec-2024 01:11:51|Withdraw|620.0;19-Dec-2024 01:12:52|Deposit|200.0
+Khush,070,5630,Savings,Khushdev Yogi,19-Dec-2024 01:11:39|Deposit|5000.0;19-Dec-2024 01:11:41|Withdraw|1000.0;19-Dec-2024 01:11:44|Deposit|50.0;19-Dec-2024 01:11:51|Withdraw|620.0;19-Dec-2024 01:12:52|Deposit|200.0;19-Dec-2024 22:32:19|Deposit|2000.0

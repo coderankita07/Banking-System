@@ -39,22 +39,12 @@ Below is the file structure of the project:
     </tr>
     <tr>
         <td>
-            ├── 📄 Bank.h # Header file defining Bank class and operations
+            ├── 📄 BankManagementSystem.h # Header file defining BankManagementSystem class and operations
         </td>
     </tr>
     <tr>
         <td>
-            ├── 📄 Bank.cpp # Implementation of Bank class operations
-        </td>
-    </tr>
-    <tr>
-        <td>
-            ├── 📄 Customer.h # Header file defining Customer class
-        </td>
-    </tr>
-    <tr>
-        <td>
-            ├── 📄 Customer.cpp # Implementation of Customer class
+            ├── 📄 BankManagementSystem.cpp # Implementation of BankManagementSystem class operations
         </td>
     </tr>
     <tr>
@@ -69,16 +59,6 @@ Below is the file structure of the project:
     </tr>
     <tr>
         <td>
-            ├── 📄 CheckingAccount.h # Header file defining CheckingAccount class
-        </td>
-    </tr>
-    <tr>
-        <td>
-            ├── 📄 CheckingAccount.cpp # Implementation of CheckingAccount class
-        </td>
-    </tr>
-    <tr>
-        <td>
             ├── 📄 SavingsAccount.h # Header file defining SavingsAccount class
         </td>
     </tr>
@@ -89,12 +69,22 @@ Below is the file structure of the project:
     </tr>
     <tr>
         <td>
-            ├── 📄 Transaction.h # Header file defining Transaction class
+            ├── 📄 CurrentAccount.h # Header file defining CurrentAccount class
         </td>
     </tr>
     <tr>
         <td>
-            ├── 📄 Transaction.cpp # Implementation of Transaction class
+            ├── 📄 CurrentAccount.cpp # Implementation of CurrentAccount class
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ├── 📄 SHA256.h # Header file defining SHA256 class
+        </td>
+    </tr>
+    <tr>
+        <td>
+            ├── 📄 SHA256.cpp # Implementation of SHA256 class
         </td>
     </tr>
     <tr>
@@ -126,26 +116,60 @@ Below is the file structure of the project:
    ```
 5. Follow the on-screen prompts to interact with the banking system (create accounts, make deposits/withdrawals, etc).
 
-## 🎨 Project Design
+## 🎨 Design Architecture
 
-- Customer Class: Manages customer details, including username and password (hashed).
-- Account Class: Acts as a base class for different account types, like Checking and Savings.
-- Transaction Class: Keeps track of all deposits and withdrawals.
-- Bank Class: Manages customers, account creation, and transaction history.
+### 1. **BankManagementSystem Class**
 
-## 🔒 Security
+- Centralized management for user operations, including:
+  - Account creation
+  - Password recovery
+  - Secure storage and retrieval of account data
 
-- **SHA-256 Password Hashing**: User passwords are hashed using the SHA-256 algorithm for enhanced security.
-- **File Storage**: All data (account info, transaction history) is stored in text files. Ensure to manage access control to these files to maintain privacy.
+### 2. **Account Class**
 
-## 💻 Usage
+- Abstract base class defining a shared interface for account-related operations.
+- **Savings Class**: Inherits from the `Account` class, representing savings account functionality.
+- **Current Class**: Inherits from the `Account` class, representing current account functionality.
 
-1. **Login**: Enter your username and password (the password is hashed and stored securely).
-2. **Account Operations**:
+### 3. **SHA256 Class**
 
-- Create a new account (Checking/Savings).
-- Deposit or withdraw money from your account.
-- View your transaction history.
+- Provides secure password encryption using the SHA-256 algorithm for robust password management.
+
+---
+
+## 🔒 Security Features
+
+### 1. **SHA-256 Password Hashing**
+
+- Passwords are hashed using the industry-standard SHA-256 algorithm to enhance security and protect against unauthorized access.
+
+### 2. **Data Storage**
+
+- All account information and transaction history are securely stored in CSV files.
+- Proper access controls and file permissions are implemented to maintain data privacy.
+
+---
+
+## 💻 System Functionality
+
+### 1. **Login**
+
+- Authenticate using a username and password.
+- Passwords are hashed and validated securely during the login process.
+
+### 2. **Account Operations**
+
+- **Create Account**: Open a new Savings or Current account.
+- **Forgot Password**: Reset passwords securely through the "Forget Password" functionality.
+- **Transactions**:
+  - Deposit or withdraw funds.
+  - View transaction history to track account activity.
+
+### 3. **Logout**
+
+- Log out securely to save user data and end the session.
+
+---
 
 ## 📄 License
 
